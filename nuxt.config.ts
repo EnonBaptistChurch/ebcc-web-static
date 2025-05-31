@@ -62,6 +62,9 @@ export default defineNuxtConfig({
         },
       },
     },
+    server: {
+      allowedHosts: ['dev-church.david-p-mitchell.uk', 'localhost']
+    },
     plugins: [tsconfigPaths()]
   },
 })
