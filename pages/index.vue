@@ -5,9 +5,8 @@
       :title="'Home - Enon Baptist Church'"
       :description="'Welcome to Enon Baptist Church. We are a community of believers committed to worship and service.'"
     />
-    
     <ChurchImage @imageRendered="onImageRendered" />
-      <div v-if="imageRendered">
+      
         <div class="home-page">
           <h1 class="welcome">Welcome to Enon Baptist Church</h1>
           <p class="home-description">
@@ -16,13 +15,11 @@
         </div>
         <CalendarEventsComponent :events="events" />  
         <Contact />
-      </div>
-  
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount, computed, watch } from 'vue';
+import { ref, computed, watch } from 'vue';
 import CalendarEventsComponent from '../components/events/CalendarEventsComponent.vue';
 import ChurchImage from '../components/ChurchImage.vue';
 import Contact from '../components/Contact.vue';
@@ -38,7 +35,12 @@ const isReady = computed(() => {
   const ready = events.value
   return ready
 })
-await fetchGoogleEvents();
+
+
+
+onMounted(async () => {
+  await fetchGoogleEvents();
+});
 
 watch(isReady, (ready) => {
   console.log('isReady watcher triggered:', ready)
