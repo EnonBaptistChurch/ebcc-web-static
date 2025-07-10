@@ -1,40 +1,37 @@
 <script setup>
+import { onMounted, ref } from 'vue';
 import '@/assets/css/site.css';
+
+const loaded = ref(false);
+onMounted(() => {
+  loaded.value = true;
+});
 </script>
 
 <template>
-  <div class="app-container">
-    
-      <NuxtLayout>
-        <NuxtPage />
-      </NuxtLayout>
-    
+  <div :class="{ 'is-loaded': loaded }" class="app-container">
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
   </div>
 </template>
-
-<script>
-import NavigationHeader from './components/nav/NavigationHeader.vue';
-import Footer from '../components/Footer.vue';
-
-export default {
-  components: {
-    NavigationHeader,
-    Footer
-  }
-}
-</script>
 
 <style>
 .page-enter-active,
 .page-leave-active {
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 .page-enter-from,
 .page-leave-to {
   opacity: 0;
   filter: blur(1rem);
 }
+
+.app-container:not(.is-loaded) {
+  visibility: hidden;
+}
+.app-container.is-loaded {
+  visibility: visible;
+  transition: visibility 0s linear 0s;
+}
 </style>
-
-
-
