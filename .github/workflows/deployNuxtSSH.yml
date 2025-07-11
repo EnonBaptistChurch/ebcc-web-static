@@ -58,9 +58,19 @@ jobs:
           PROJECT_PATH: ${{ env.PROJECT_PATH }}
           REPO_SSH_URL: ${{ env.REPO_SSH_URL }}
           PM2_APP_NAME: ${{ env.PM2_APP_NAME }}
+          GITHUB_DEPLOY_KEY: ${{ secrets.GITHUB_DEPLOY_KEY }}
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST "
             set -e
+            
+            # Setup SSH for git operations on server
+            mkdir -p ~/.ssh
+            echo '$GITHUB_DEPLOY_KEY' > ~/.ssh/github_deploy_key
+            chmod 600 ~/.ssh/github_deploy_key
+            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
+            
+            # Configure git to use the deploy key
+            export GIT_SSH_COMMAND='ssh -i ~/.ssh/github_deploy_key -o StrictHostKeyChecking=no'
             
             if [ -d $PROJECT_PATH/.git ]; then
               echo 'Repository exists, pulling latest changes...'
