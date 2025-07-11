@@ -58,6 +58,8 @@ jobs:
           PROJECT_PATH: ${{ env.PROJECT_PATH }}
           REPO_SSH_URL: ${{ env.REPO_SSH_URL }}
           PM2_APP_NAME: ${{ env.PM2_APP_NAME }}
+          FORMSPREE_FORM_ID: ${{ secrets.FORMSPREE_FORM_ID }}
+
         run: |
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST "
             set -e
@@ -92,6 +94,7 @@ jobs:
             cat > .env << 'ENVEOF'
           GOOGLE_CALENDAR_API_KEY=$GOOGLE_CALENDAR_API_KEY
           GOOGLE_CALENDARID=$GOOGLE_CALENDARID
+          FORMSPREE_FORM_ID=$FORMSPREE_FORM_ID
           ENVEOF
             
             echo 'Installing dependencies...'
