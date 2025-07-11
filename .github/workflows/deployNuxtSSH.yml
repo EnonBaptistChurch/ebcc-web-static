@@ -11,19 +11,15 @@ permissions:
   contents: write
 
 env:
-    PROJECT_PATH: /home/${{ secrets.DEPLOY_HP_SSH_USER }}/apps/${{ github.repository }}
-    REPO_SSH_URL: git@github.com:${{ github.repository }}.git
-    PM2_APP_NAME: ${{ github.event.repository.name }}
+  PROJECT_PATH: /home/${{ secrets.DEPLOY_HP_SSH_USER }}/apps/${{ github.repository }}
+  REPO_SSH_URL: git@github.com:${{ github.repository }}.git
+  PM2_APP_NAME: ${{ github.event.repository.name }}
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
+    
     steps:
-
-      - name: Print ProjPath
-        run: echo "${{ env.PROJECT_PATH }}" | head -c 20
-
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -44,18 +40,14 @@ jobs:
       - name: Build Nuxt site
         run: npm run build
 
-      - name: Setup SSH
+      - name: Setup SSH for deployment
         run: |
           mkdir -p ~/.ssh
-
-          echo "${{ secrets.DEPLOY_HP_SSH_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-
-          # Set SSH config to ensure git uses this key
-          echo -e "Host github.com\n  IdentityFile ~/.ssh/id_rsa\n  IdentitiesOnly yes" > ~/.ssh/config
-          chmod 600 ~/.ssh/config
-
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.DEPLOY_HP_SSH_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          
+          # Add server host key to known_hosts
+          ssh-keyscan -H ${{ secrets.DEPLOY_HP_SSH_HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy via SSH to server
         env:
@@ -63,30 +55,37 @@ jobs:
           GOOGLE_CALENDARID: ${{ secrets.GOOGLE_CALENDARID }}
           DEPLOY_SSH_USER: ${{ secrets.DEPLOY_HP_SSH_USER }}
           DEPLOY_SSH_HOST: ${{ secrets.DEPLOY_HP_SSH_HOST }}
-          DEPLOY_SSH_KEY: ${{ secrets.DEPLOY_HP_SSH_KEY }}
           PROJECT_PATH: ${{ env.PROJECT_PATH }}
           REPO_SSH_URL: ${{ env.REPO_SSH_URL }}
           PM2_APP_NAME: ${{ env.PM2_APP_NAME }}
         run: |
-          mkdir -p ~/.ssh
-          echo "$DEPLOY_SSH_KEY" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-
-          ssh-keyscan -H $DEPLOY_SSH_HOST >> ~/.ssh/known_hosts
-
-          ssh -i ~/.ssh/id_rsa $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST "
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no $DEPLOY_SSH_USER@$DEPLOY_SSH_HOST "
+            set -e
+            
             if [ -d $PROJECT_PATH/.git ]; then
-              echo 'Repo exists, pulling latest changes...'
+              echo 'Repository exists, pulling latest changes...'
               cd $PROJECT_PATH && git pull
             else
-              echo 'Repo not found, cloning fresh...'
+              echo 'Repository not found, cloning fresh...'
               git clone $REPO_SSH_URL $PROJECT_PATH
-            fi &&
-            cd $PROJECT_PATH &&
-            export GOOGLE_CALENDAR_API_KEY='$GOOGLE_CALENDAR_API_KEY' &&
-            export GOOGLE_CALENDARID='$GOOGLE_CALENDARID' &&
-            npm ci &&
-            npm run build &&
-            pm2 restart $PM2_APP_NAME || pm2 start $PM2_APP_NAME
+            fi
+            
+            cd $PROJECT_PATH
+            
+            # Create .env file with proper escaping
+            cat > .env << EOF
+          GOOGLE_CALENDAR_API_KEY=$GOOGLE_CALENDAR_API_KEY
+          GOOGLE_CALENDARID=$GOOGLE_CALENDARID
+          EOF
+            
+            echo 'Installing dependencies...'
+            npm ci
+            
+            echo 'Building application...'
+            npm run build
+            
+            echo 'Restarting PM2 application...'
+            pm2 restart $PM2_APP_NAME || pm2 start npm --name $PM2_APP_NAME -- start
+            
+            echo 'Deployment completed successfully!'
           "
-        shell: bash
