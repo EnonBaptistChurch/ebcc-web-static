@@ -10,6 +10,7 @@ export default function parseCalendar(rawICS: string): GoogleCalendarEvent[] {
 
   const events: GoogleCalendarEvent[] = [];
 
+  
   for (const key in parsed) {
     const event = parsed[key];
     if (event.type !== 'VEVENT') continue;
