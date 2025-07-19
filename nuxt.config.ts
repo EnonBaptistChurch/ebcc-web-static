@@ -75,5 +75,9 @@ export default defineNuxtConfig({
     async 'build:before'() {
       fetchCalendarEvents();
     }
-  }
+  },
+  ssr: true, // SSR must be true for SSG to work
+  nitro: {
+    preset: 'static',
+  },
 })
