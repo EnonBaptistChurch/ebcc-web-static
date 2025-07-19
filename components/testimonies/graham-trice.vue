@@ -1,5 +1,5 @@
 <template>
-    <article class="edenPageContent">
+    <article class="text-content">
         <h1>Graham Trice</h1>
         <div>
             <figure>
