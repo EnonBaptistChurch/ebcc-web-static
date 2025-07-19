@@ -1,7 +1,7 @@
 <template>
     <div class="bible-study">
         <NuxtLink prefetch to="/whats-on/bible-study/" class="bible-study box-title">
-    <EventsCalendarEventComponent :event="event" />
+    <EventsCalendarEventComponent :event="event" :has-page="true" />
         </NuxtLink>
     </div>
 </template>

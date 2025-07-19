@@ -1,13 +1,13 @@
 <template>
     <div class="sunday-evening">
       <NuxtLink to="/whats-on/sunday-evening" class="sunday-evening box-title">
-        <EventsCalendarEventComponent :event="event" />
+        <EventsCalendarEventComponent :event="event" :has-page="true" />
       </NuxtLink>
     </div>
 </template>
 <script setup lang="ts">
 
-import type { CalendarEvent } from '~/types/CalendarEvent';
+import type { CalendarEvent } from '@/types/CalendarEvent';
 const props = defineProps<{ event: CalendarEvent }>();
 </script>
 

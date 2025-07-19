@@ -1,12 +1,12 @@
 <template>
     <div class="discoverers">
         <NuxtLink prefetch to="/whats-on/youth/" class="discoverers box-title">
-    <EventsCalendarEventComponent :event="event" />
+    <EventsCalendarEventComponent :event="event" :has-page="true" />
         </NuxtLink>
     </div>
 </template>
 <script setup lang="ts">
-import type { CalendarEvent } from '~/types/CalendarEvent';
+import type { CalendarEvent } from '@/types/CalendarEvent';
 const props = defineProps<{ event: CalendarEvent }>();
 </script>
 
