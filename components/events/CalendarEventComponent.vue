@@ -12,7 +12,7 @@
 
 <script setup lang="ts">
 import type { CalendarEvent } from '@/types/CalendarEvent';
-import { getDateDayMonth, getTime } from '@/composables/useDateToText';
+import { getDateDayMonth, getTime } from '../../composables/useDateToText';
 const props = defineProps<{ event: CalendarEvent }>();
 </script>
 
