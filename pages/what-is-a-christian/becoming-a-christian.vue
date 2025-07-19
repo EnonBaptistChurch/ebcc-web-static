@@ -1,6 +1,8 @@
 <template>
-    <article class="edenPageContent">
-								<h1 class="entry-title">Becoming A Christian</h1><div id="post-59" class="article post-59 page type-page status-publish hentry"><p>If you’re serious about becoming a Christian, there are a few things you need to understand.</p>
+    <article class="text-content">
+								<h1 >Becoming A Christian</h1>
+                                <div>
+                                    <p>If you’re serious about becoming a Christian, there are a few things you need to understand.</p>
 <p>Becoming a Christian is not like joining a club, neither is it the same as taking up a new interest or hobby. Your desire to be a Christian has to come from a sense of overwhelming need, and such a sense can’t be created by a casual interest, but only by God working in your heart and mind.</p>
 <p>You can’t make yourself a Christian. You can decide to call yourself a Christian, but that’s not the same as being one. This is true because of what a Christian is. By definition, a Christian is a Christ-person, one who loves the Lord Jesus Christ and seeks to live his or her life according to the Saviour’s teaching. But this is contrary to all that we are by nature, so that nature first has to be changed if we are to be Christians, and only God can do that.</p>
 <p>This shows us that only God can make us Christians. That’s why the apostle Paul in Ephesians 2:10 describes himself and other believers by saying, ‘We are God’s workmanship.’ Each Christian is the product of an extraordinary work of Almighty God.</p>

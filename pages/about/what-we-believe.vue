@@ -1,18 +1,19 @@
 <template>
   <div>
       <img fetchpriority="high" decoding="async" class="responsive-image" src="https://enonbaptistchatham.org.uk/wp-content/uploads/2017/01/what-we-believe.jpg" width="772" height="515" />
+      <div class="text-content">
       <article class="edenPageContent">
       <h1 class="entry-title">What We Believe</h1>
-      <div id="post-42" class="article post-42 page type-page status-publish hentry"><h3 style="text-align: left;">Set out below is a summary of the essential doctrines which we at Enon Baptist Church believe:</h3>
+      <div>
+        <h3>Set out below is a summary of the essential doctrines which we at Enon Baptist Church believe:</h3>
           
-          <div>
           <div v-for="(section, index) in sections" :key="index">
             <h2>{{ section.title }}</h2>
             <p v-html="formatContent(section.content)"></p>
           </div>
-        </div>
       </div>
       </article>
+      </div>
   </div>
 </template> 
 

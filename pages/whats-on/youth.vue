@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-content">
         <article>
             <h1>Discoverers</h1>
             <div>

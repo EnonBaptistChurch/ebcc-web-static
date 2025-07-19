@@ -1,5 +1,5 @@
 <template>
-    <article>
+    <article class="text-content">
         <h1>
             What's On
         </h1>

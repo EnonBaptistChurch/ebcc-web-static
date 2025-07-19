@@ -18,11 +18,14 @@ html,body {
   p {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
   }
+   .text-content {
+    padding-left: 15px;
+    padding-right: 15px;
+   }
   
   .content {
     flex: 1; /* Ensures content takes up the available space */
-    padding-left: 15px;
-    padding-right: 15px;
+    
   }
   .responsive-image {
     width: 100%; /* Makes the image fill the width of its container */

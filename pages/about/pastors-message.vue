@@ -1,5 +1,5 @@
 <template>
-    <article class="edenPageContent">
+    <article class="text-content">
         <h1>
             Pastor's Message
         </h1>
