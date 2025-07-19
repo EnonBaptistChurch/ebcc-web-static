@@ -1,10 +1,7 @@
 <template>
   
   <div>
-    <PageMeta
-      :title="'Home - Enon Baptist Church'"
-      :description="'Welcome to Enon Baptist Church. We are a community of believers committed to worship and service.'"
-    />
+    
     <ChurchImage @imageRendered="onImageRendered" />
       
         <div class="home-page">
@@ -13,7 +10,7 @@
             We are a group of people who meet together to worship God. We are concerned for one another and those who live around us. We believe the Bible to be God’s Word that is relevant to all areas of our life. In particular, we have a personal belief in Jesus Christ and through him have a real relationship with God.
           </p>
         </div>
-        <CalendarEventsComponent :events="events" />  
+        <CalendarEventsComponent @eventsLoaded="handleEventsLoaded" />  
         <Contact />
   </div>
 </template>
@@ -23,27 +20,21 @@ import { ref, computed, watch } from 'vue';
 import CalendarEventsComponent from '../components/events/CalendarEventsComponent.vue';
 import ChurchImage from '../components/ChurchImage.vue';
 import Contact from '../components/Contact.vue';
-import { fetchGoogleEvents, useGoogleEvents } from '../composables/useGoogleEvents';
 import { usePageReady } from '../composables/usePageReady'
 
 const { markPageReady } = usePageReady()
 const imageRendered = ref(false);
-
-const { events } = useGoogleEvents();
+const eventsLoaded = ref(false);
 
 const isReady = computed(() => {
-  const ready = events.value
+  const ready = eventsLoaded.value && imageRendered.value;
   return ready
 })
-
-
-
-onMounted(async () => {
-  await fetchGoogleEvents();
-});
+const handleEventsLoaded = () => {
+  eventsLoaded.value = true;
+};
 
 watch(isReady, (ready) => {
-  console.log('isReady watcher triggered:', ready)
   if (ready) markPageReady()
 })
 
