@@ -51,7 +51,7 @@ export default {
   background-size: cover;
   position: relative;
   width: 100%;
-  height: 400px;
+  height: 300px;
 }
 
 .edenParallax-wrap {
