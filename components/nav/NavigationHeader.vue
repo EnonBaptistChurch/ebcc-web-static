@@ -1,5 +1,6 @@
 <!-- components/BurgerMenu.vue -->
 <template>
+  <div class="siteMaintenance">Under Construction</div>
   <header ref="header" class="header">
     <div class="header-left">
       <NuxtLink prefetch to="/" class="home-link">Enon Baptist Church</NuxtLink>
@@ -30,6 +31,7 @@
       </nav>
     </div>
   </header>
+  
 </template>
 
 <script lang="ts">
@@ -218,6 +220,21 @@ export default defineComponent({
 
 .submenu a:hover {
   background: #f5f5f5;
+}
+
+.siteMaintenance {
+  position: static;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: navy;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  font-weight: bold;
+  z-index: 1;
+  font-size: small;
+  ;
 }
 
 /* Mobile dropdown positioning */
