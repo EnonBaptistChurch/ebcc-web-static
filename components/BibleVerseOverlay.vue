@@ -1,5 +1,5 @@
 <template>
-  <section
+  <div
     id="edenParallax_page_section"
     class="edenParallax-zone"
     :data-speed="speed"
@@ -9,14 +9,10 @@
     <div class="edenParallax-wrap">
       <div class="edenParallax-screen"></div>
       <div class="verse-content">
-        “{{ verseText }}”
-        <div class="reference">
-          {{ reference }}
-          <span class="version">({{ version }})</span>
-        </div>
+        “{{ verseText }}” {{ reference }} {{ ( version ) ? `(${version})` : '' }}
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -37,7 +33,7 @@ export default {
     },
     version: {
       type: String,
-      default: "NKJV",
+      required: true,
     },
     speed: {
       type: String,
@@ -49,28 +45,13 @@ export default {
 
 <style scoped>
 .edenParallax-zone {
-  position: relative;
-  background-size: cover;
+  background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
   width: 100%;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-@media (min-width: 600px) {
-  .edenParallax-zone {
-    min-height: 400px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .edenParallax-zone {
-    min-height: 500px;
-  }
+  height: 400px;
 }
 
 .edenParallax-wrap {
@@ -92,40 +73,12 @@ export default {
 
 .verse-content {
   position: relative;
-  z-index: 2;
-  text-align: center;
-  padding: 3rem 1rem;
   font-weight: 300;
+  text-align: center;
+  padding: 100px 10%;
+  font-size: 40px;
+  line-height: 55px;
   color: #fff;
-  font-size: 1.2rem;
-  line-height: 1.6;
-}
-
-@media (min-width: 600px) {
-  .verse-content {
-    font-size: 1.6rem;
-    line-height: 2.2rem;
-    padding: 4rem 2rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .verse-content {
-    font-size: 2rem;
-    line-height: 2.8rem;
-    padding: 5rem 4rem;
-  }
-}
-
-.reference {
-  display: block;
-  margin-top: 1rem;
-  font-size: 0.95em;
-  font-style: italic;
-}
-
-.version {
-  margin-left: 0.5em;
-  font-size: 0.9em;
+  z-index: 2;
 }
 </style>
