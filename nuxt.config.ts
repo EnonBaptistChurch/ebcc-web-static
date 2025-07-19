@@ -1,5 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import tsconfigPaths from 'vite-tsconfig-paths'
+import { fetchCalendarEvents } from './utils/fetchCalendar'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
@@ -70,4 +71,9 @@ export default defineNuxtConfig({
     },
     plugins: [tsconfigPaths()]
   },
+  hooks: {
+    async 'build:before'() {
+      fetchCalendarEvents();
+    }
+  }
 })
