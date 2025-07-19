@@ -226,7 +226,6 @@ export default defineComponent({
   position: static;
   bottom: 0;
   left: 0;
-  width: 100%;
   background-color: navy;
   color: #ffffff;
   text-align: center;
