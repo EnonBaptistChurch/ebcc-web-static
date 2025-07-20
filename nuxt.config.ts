@@ -71,11 +71,11 @@ export default defineNuxtConfig({
     },
     plugins: [tsconfigPaths()]
   },
-  hooks: {
-    async 'build:before'() {
-      fetchCalendarEvents();
-    }
-  },
+  // hooks: {
+  //   async 'build:before'() {
+  //     fetchCalendarEvents();
+  //   }
+  // },
   ssr: true, // SSR must be true for SSG to work
   nitro: {
     preset: 'static',
