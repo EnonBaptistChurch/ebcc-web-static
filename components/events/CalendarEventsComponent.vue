@@ -1,9 +1,10 @@
-<template>
+<template></template>
+<!-- <template>
   <div class="event-wrapper">
   <h2 class="event-underline">Upcoming Events</h2>
 
   <div class="event-container">
-    <!-- Show 4 placeholders if no events yet -->
+    
     <template v-if="events.length === 0">
       <LoadingCalendarEventComponent 
         v-for="n in 4"
@@ -11,7 +12,7 @@
         
       ></LoadingCalendarEventComponent>
     </template>
-    <!-- Show actual events when loaded -->
+    
     <template v-else>
       <div class="loading-grid">
         <div
@@ -46,7 +47,7 @@ import SundayClubEventComponent from './specific-events/SundayClubEventComponent
 import DiscoverersEventComponent from './specific-events/DiscoverersEventComponent.vue';
 import LoadingCalendarEventComponent from './LoadingCalendarEventComponent.vue';
 
-import { parseCalendarEvents } from '../../utils/parseCalendar';
+// import { parseCalendarEvents } from '../../utils/parseCalendar';
 
 const events = ref<GoogleCalendarEvent[]>([]);
 const emit = defineEmits(['eventsLoaded']);
@@ -134,4 +135,4 @@ onMounted(async () => {
     min-width: 100%;
   }
 }
-</style>
+</style> -->
