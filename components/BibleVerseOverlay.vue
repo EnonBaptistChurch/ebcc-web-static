@@ -9,7 +9,7 @@
     <div class="edenParallax-wrap">
       <div class="edenParallax-screen"></div>
       <div class="verse-content">
-        “{{ verseText }}” {{ reference }} {{ ( version ) ? `(${version})` : '' }}
+        “{{ verseText }}” {{ reference }} {{ version ? `(${version})` : '' }}
       </div>
     </div>
   </div>
@@ -54,6 +54,13 @@ export default {
   height: 300px;
 }
 
+@supports (-webkit-overflow-scrolling: touch) {
+  /* iOS fix: fallback to scroll-based parallax */
+  .edenParallax-zone {
+    background-attachment: scroll;
+  }
+}
+
 .edenParallax-wrap {
   position: relative;
   width: 100%;
@@ -80,5 +87,21 @@ export default {
   line-height: 55px;
   color: #fff;
   z-index: 2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .verse-content {
+    font-size: 24px;
+    line-height: 34px;
+    padding: 60px 5%;
+  }
+
+  .edenParallax-zone {
+    height: auto;
+    padding: 60px 0;
+  }
 }
 </style>
