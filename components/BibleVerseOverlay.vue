@@ -51,20 +51,30 @@ export default {
   background-size: cover;
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 300px; /* default height for portrait */
+  overflow: hidden;
 }
 
 @supports (-webkit-overflow-scrolling: touch) {
-  /* iOS fix: fallback to scroll-based parallax */
   .edenParallax-zone {
     background-attachment: scroll;
   }
 }
 
+/* Increase height on landscape to give more vertical space */
+@media (orientation: landscape) {
+  .edenParallax-zone {
+    height: 400px;
+  }
+}
+
 .edenParallax-wrap {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  position: relative;
 }
 
 .edenParallax-screen {
@@ -79,29 +89,16 @@ export default {
 }
 
 .verse-content {
-  position: relative;
-  font-weight: 300;
-  text-align: center;
-  padding: 100px 10%;
-  font-size: 40px;
-  line-height: 55px;
-  color: #fff;
   z-index: 2;
+  color: #fff;
+  text-align: center;
+  font-weight: 300;
+  padding: 0 5%;
+  font-size: clamp(16px, 4vw, 32px);
+  line-height: 1.4;
   word-wrap: break-word;
   overflow-wrap: break-word;
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-  .verse-content {
-    font-size: 24px;
-    line-height: 34px;
-    padding: 60px 5%;
-  }
-
-  .edenParallax-zone {
-    height: auto;
-    padding: 60px 0;
-  }
+  max-height: 100%;
+  overflow: hidden;
 }
 </style>
