@@ -1,4 +1,3 @@
-<!-- components/BurgerMenu.vue -->
 <template>
   <header ref="header" class="header">
     <div class="header-left">
@@ -8,17 +7,26 @@
       <button class="burger-button" @click="toggleMenu">
         <span class="burger-icon">{{ isOpen ? '✕' : '☰' }}</span>
       </button>
-      
+
       <nav :class="{ 'menu': true, 'is-open': isOpen }" :style="{ top: headerHeight + 'px' }">
         <ul class="main-menu">
           <li v-for="(item, index) in navItems" :key="index" :class="{ 'has-submenu': item.submenu }">
-            <div class="menu-item-wrapper">
-              <NuxtLink prefetch :to="item.link || '#'" @click="closeMenu" class="main-link">
+            <div class="menu-item-wrapper" @click="item.submenu && !isDesktop && toggleSubmenu(index)">
+              <NuxtLink
+                prefetch
+                :to="item.link || '#'"
+                @click.stop="closeMenu"
+                class="main-link"
+              >
                 {{ item.title }}
               </NuxtLink>
-              <button v-if="item.submenu && !isDesktop" class="submenu-toggle" @click.prevent="toggleSubmenu(index)">
-                <span class="arrow">{{ openSubmenu === index ? '▴' : '▾' }}</span>
-              </button>
+              <span
+                v-if="item.submenu && !isDesktop"
+                class="submenu-arrow"
+                @click.stop.prevent="toggleSubmenu(index)"
+              >
+                {{ openSubmenu === index ? '▴' : '▾' }}
+              </span>
             </div>
             <ul v-if="item.submenu" v-show="openSubmenu === index || isDesktop" class="submenu">
               <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
@@ -30,7 +38,6 @@
       </nav>
     </div>
   </header>
-  
 </template>
 
 <script lang="ts">
@@ -172,6 +179,8 @@ export default defineComponent({
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  height:100%;
+  cursor: pointer;
 }
 
 .main-link {
@@ -188,17 +197,21 @@ export default defineComponent({
   background: #f5f5f5;
 }
 
-.submenu-toggle {
-  background: none;
-  border: none;
-  padding: 12px 20px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+.submenu-arrow {
+  font-size: 1rem;
+  padding: 11px 15px;
+  
+  color: #666;
+  user-select: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  border-bottom: 1px solid #eee;
+  border-left: 1px solid #eee;
+  transform: scale(1);
 }
 
-.arrow {
-  font-size: 1em;
+.submenu-arrow:hover {
+  color: #000;
+  transform: scale(1.1);
 }
 
 .submenu {
@@ -220,8 +233,6 @@ export default defineComponent({
 .submenu a:hover {
   background: #f5f5f5;
 }
-
-
 
 /* Mobile dropdown positioning */
 @media (max-width: 1023px) {
@@ -281,16 +292,18 @@ export default defineComponent({
     background: #f5f5f5;
   }
 
-  .submenu-toggle {
+  .submenu-arrow {
     display: none;
   }
 
   .has-submenu > .menu-item-wrapper:after {
-    content: '▾'; /* Same down arrow as before */
+    content: '▾';
     position: absolute;
     right: 5px;
     top: 50%;
     transform: translateY(-50%);
+    font-size: 0.8em;
+    color: #888;
   }
 
   .submenu {
