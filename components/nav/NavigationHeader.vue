@@ -36,7 +36,7 @@
 <script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue'
 import type { NavItem } from '../../types/NavItem'
-import navItems from './NavigationLinks'
+import navItems from '../../data/NavigationLinks'
 
 export default defineComponent({
   setup() {
