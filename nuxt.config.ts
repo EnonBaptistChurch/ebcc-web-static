@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import tsconfigPaths from 'vite-tsconfig-paths'
-import { fetchCalendarEvents } from './utils/fetchCalendar'
+
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
@@ -30,8 +30,8 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon',type: 'image/x-icon', href: '/ebc-logo.ico' },  // For higher resolution displays
-        { rel: 'preload', href: '/_nuxt/assets/css/site.css', as: 'style' },  // adjust if using hashed filenames
-        { rel: 'stylesheet', href: '/_nuxt/assets/css/site.css' },
+        { rel: 'preload', href: '/assets/css/site.css', as: 'style' },  // adjust if using hashed filenames
+        { rel: 'stylesheet', href: '/assets/css/site.css' },
         { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter&display=swap' }
       ],
       htmlAttrs: {
@@ -39,12 +39,6 @@ export default defineNuxtConfig({
       }
     },
     pageTransition: { name: 'page', mode: 'out-in' }
-  },
-  runtimeConfig: {
-    googleCalendarApiKey: process.env.GOOGLE_CALENDAR_API_KEY,
-    googleCalendarId: process.env.GOOGLE_CALENDARID,
-    formspreeFormId: process.env.FORMSPREE_FORM_ID,
-    
   },
   typescript: {
     shim: false,
@@ -71,13 +65,4 @@ export default defineNuxtConfig({
     },
     plugins: [tsconfigPaths()]
   },
-  // hooks: {
-  //   async 'build:before'() {
-  //     fetchCalendarEvents();
-  //   }
-  // },
-  // ssr: true, // SSR must be true for SSG to work
-  // nitro: {
-  //   preset: 'static',
-  // },
 })
