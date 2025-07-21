@@ -7,10 +7,11 @@
       <div>
         <h3>Set out below is a summary of the essential doctrines which we at Enon Baptist Church believe:</h3>
           
-          <div v-for="(section, index) in sections" :key="index">
-            <h2>{{ section.title }}</h2>
-            <p v-html="formatContent(section.content)"></p>
-          </div>
+            <CollapsibleComponent
+              v-for="(section) in sections"
+              :title="section.title"
+              :content="section.content"
+            />
       </div>
       </article>
       </div>
