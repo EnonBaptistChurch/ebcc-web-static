@@ -26,7 +26,7 @@
 import { ref, computed, watch } from 'vue';
 import CalendarEventsComponent from '../components/events/CalendarEventsComponent.vue';
 import ChurchImage from '../components/ChurchImage.vue';
-import Contact from '../components/Contact.vue';
+import Contact from '../components/NetlifyContact.vue';
 import { usePageReady } from '../composables/usePageReady'
 
 const { markPageReady } = usePageReady()

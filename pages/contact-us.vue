@@ -1,11 +1,13 @@
 <template>
   <div class="contact-page">
-    <Contact />
+    <NetlifyContact />
   </div>
 </template>
 
+
 <script>
-import Contact from '~/components/Contact.vue';
+import NetlifyContact from '~/components/NetlifyContact.vue';
+// import Contact from '~/components/Contact.vue';
 export default {
   name: 'ContactPage'
 }
