@@ -1,46 +1,73 @@
 <template>
+  <div class="footer">
     <div class="footer-section">
-        
-        <p class="left-align-section">© Enon Baptist Church 2025</p>
-        <p class="right-align-section">Enon Baptist Church, Skinner Street, Chatham, ME4 5RF, UK (<NuxtLink href="/find-us">Find Us</NuxtLink>)</p>
-    
+      <p class="left-align-section">© Enon Baptist Church 2025</p>
+      <p class="right-align-section">
+        Enon Baptist Church, Skinner Street, Chatham, ME4 5RF, UK
+        (<NuxtLink href="/find-us">Find Us</NuxtLink>)
+      </p>
     </div>
-        
+  </div>
 </template>
 
-<style>
+<style scoped>
 .footer {
-    background-color: var(--nav-bar-bg-color);
-    color: var(--body-text-color);
-    padding: 0px;
-    display: flex;
-    flex-direction: row; /* Horizontal layout for desktop */
-  
-  height: 25px; /* Adjust for your footer height */
-
+  background-color: var(--nav-bar-bg-color);
+  color: var(--body-text-color);
+  padding: 0px;
 }
 
 .footer-section {
-    background-color: var(--nav-bar-bg-color);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 auto; /* Add some padding for aesthetics */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left-align-section,
+.right-align-section {
+  flex: 1 1 100%;
+  margin: 5px 0;
 }
 
 .left-align-section {
- margin:0px;
- display: flex; /* Visible on desktop */
-    justify-content: flex-start;
-    flex-grow: 1; /* Allow this section to take available space */
-    text-align: left;
-    padding-left: 10px; /* Add some padding for aesthetics */
+  text-align: left;
+  padding-left: 10px;
 }
 
 .right-align-section {
-    margin:0px;
+  text-align: right;
+  padding-right: 10px;
+}
+
+/* Less than Laptop layout */
+@media (max-width: 1024px) {
+    .right-align-section {
+        display: none;
+    }
+}
+
+/* Desktop layout */
+@media (min-width: 768px) {
+  .footer-section {
+    flex-direction: row;
+  }
+
+  .left-align-section,
+  .right-align-section {
+    flex: 1;
+    margin: 0;
+  }
+
+  .left-align-section {
+    text-align: left;
+    padding-left: 10px;
+  }
+
+  .right-align-section {
     text-align: right;
-    display: flex; /* Visible on desktop */
-    justify-content: flex-end;
+    padding-right: 10px;
+  }
 }
 </style>
