@@ -1,8 +1,17 @@
 <template>
-  <main class="error-page">
-    <h1>404 - Page Not Found</h1>
-    <p>Sorry, the page you are looking for does not exist.</p>
-    <NuxtLink to="/" class="btn-home">Go back home Hello</NuxtLink>
+  <main >
+    
+    <BibleVerseParallaxOverlay
+    image="https://enonbaptistchatham.org.uk/wp-content/uploads/2017/02/field-175959_1920.jpg"
+      verseText="And you will seek Me and find Me, when you search for Me with all your heart."
+      reference="Jeremiah 29:13"
+      version="NKJV" />
+      <div class="text-content">
+    <h5>This page wandered off — like a sheep without a shepherd.</h5>
+    <NuxtLink to="/" class="btn-home">Return home</NuxtLink>
+    </div>
+    <br />
+  
   </main>
 </template>
 
@@ -32,9 +41,9 @@
 
 .btn-home {
   display: inline-block;
-  background-color: #007acc;
-  color: white;
-  padding: 0.75rem 1.5rem;
+  background-color: var(--nav-bar-bg-color, #007bff);
+  color: #000;
+  padding: 0.5rem 0.5rem;
   border-radius: 4px;
   text-decoration: none;
   font-weight: 600;
@@ -43,5 +52,6 @@
 
 .btn-home:hover {
   background-color: #005fa3;
+  color: #ffffff
 }
 </style>
