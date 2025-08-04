@@ -17,7 +17,7 @@
     "vue": "latest"
   },
   "devDependencies": {
-    "@types/luxon": "^3.6.2",
+    "@types/luxon": "^3.7.1",
     "compression-webpack-plugin": "^11.1.0",
     "nuxt": "^3.17.7",
     "typescript": "^5.8.3",
