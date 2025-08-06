@@ -20,13 +20,9 @@
               >
                 {{ item.title }}
               </NuxtLink>
-              <span
-                v-if="item.submenu && !isDesktop"
-                class="submenu-arrow"
-                @click.stop.prevent="toggleSubmenu(index)"
-              >
-                {{ openSubmenu === index ? '▴' : '▾' }}
-              </span>
+              <div v-if="item.submenu && !isDesktop" class="submenu-arrow" @click.stop.prevent="toggleSubmenu(index)">
+                <MobileChevronIcon :flipped="openSubmenu === index" />
+              </div>
             </div>
             <ul v-if="item.submenu" v-show="openSubmenu === index || isDesktop" class="submenu">
               <li v-for="(subItem, subIndex) in item.submenu" :key="subIndex">
@@ -42,10 +38,14 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted, onUnmounted } from 'vue'
+import MobileChevronIcon from './MobileChevronIcon.vue'
 import type { NavItem } from '../../types/NavItem'
 import navItems from '../../data/NavigationLinks'
 
 export default defineComponent({
+  components: {
+    MobileChevronIcon
+  },
   setup() {
     const header = ref<HTMLElement | null>(null)
     const headerHeight = ref(0)
@@ -188,7 +188,6 @@ export default defineComponent({
   padding: 12px 20px;
   text-decoration: none;
   color: #333;
-  border-bottom: 1px solid #eee;
   box-sizing: border-box;
   flex-grow: 1;
 }
@@ -199,20 +198,21 @@ export default defineComponent({
 
 .submenu-arrow {
   font-size: 1rem;
-  padding: 11px 15px;
-  
+  padding: 6px 16px;
+  margin: 2px 0px ;
+  right: 0px;
   color: #666;
+  background-color: transparent;
   user-select: none;
   transition: transform 0.2s ease, color 0.2s ease;
-  border-bottom: 1px solid #eee;
   border-left: 1px solid #eee;
-  transform: scale(1);
 }
 
 .submenu-arrow:hover {
   color: #000;
-  transform: scale(1.1);
 }
+
+
 
 .submenu {
   list-style: none;
@@ -226,12 +226,15 @@ export default defineComponent({
   display: block;
   text-decoration: none;
   color: #333;
-  border-bottom: 1px solid #eee;
   box-sizing: border-box;
 }
 
 .submenu a:hover {
   background: #f5f5f5;
+}
+
+.submenuopen {
+  transform: scale(-1);
 }
 
 /* Mobile dropdown positioning */
@@ -246,6 +249,10 @@ export default defineComponent({
     z-index: 1000;
     overflow-y: auto;
   }
+
+ .menu-item-wrapper {
+  border-bottom: 1px solid #eee;
+}
 
   .burger-menu {
     margin-right: 0;
