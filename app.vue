@@ -1,6 +1,6 @@
 <script setup>
 import { onMounted, ref } from 'vue';
-import '@/assets/css/site.css';
+import '@/public/css/site.css';
 
 const loaded = ref(false);
 onMounted(() => {

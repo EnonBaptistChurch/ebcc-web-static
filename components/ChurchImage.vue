@@ -7,7 +7,7 @@
   preload
   loading="eager"
 /> -->
-  <img fetchpriority="high" src="/images/enonChurch.webp" alt="Enon Baptist Church" class="responsive-image" @load="notifyParent"  />
+  <img fetchpriority="high" src="/images/enonChurch.webp" alt="Enon Baptist Church"  @load="notifyParent" class="responsive-image" width="1487" height="600" />
   
   
 </template>
