@@ -4,22 +4,9 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
-  modules: ['@nuxt/image-edge'],
   css: ['~/public/css/site.css'], // Adjust to match your actual path
   alias: {
     '@': './',
-  },
-  image: {
-    provider: 'vercel',
-    screens: {
-      sm: 320,
-      md: 640,
-      lg: 1024,
-      xl: 1280,
-    },
-    domains: [
-      'enonbaptistchatham.org.uk',        // if pulling images from external sites
-    ]
   },
   app: {
     head: {
