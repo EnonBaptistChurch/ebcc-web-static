@@ -32,7 +32,6 @@ export default defineNuxtConfig({
         { rel: 'icon',type: 'image/x-icon', href: '/ebc-logo.ico' },  // For higher resolution displays
         { rel: 'preload', href: '/assets/css/site.css', as: 'style' },  // adjust if using hashed filenames
         { rel: 'stylesheet', href: '/assets/css/site.css' },
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Inter&display=swap' }
       ],
       htmlAttrs: {
         lang: 'en'
