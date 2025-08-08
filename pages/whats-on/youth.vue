@@ -8,7 +8,6 @@
                 <p>There is a Christian message each week and also an opportunity to buy some tuck.</p>
                 <p>We regularly meet up with another youth group and also do things like swimming, tobogganing, and other activities.</p>
                 <p>Why not come and find out what we do?</p>
-                <p>&nbsp;</p>
             </div>
         </article>
     </div>
