@@ -291,7 +291,7 @@ export default defineComponent({
   }
 
   .main-link {
-    padding: 15px 20px;
+    padding: 15px 10px;
     border: none;
   }
 
@@ -303,15 +303,7 @@ export default defineComponent({
     display: none;
   }
 
-  .has-submenu > .menu-item-wrapper:after {
-    content: '▾';
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 0.8em;
-    color: #888;
-  }
+  
 
   .submenu {
     display: none;
