@@ -17,6 +17,7 @@
     "vue": "latest"
   },
   "devDependencies": {
+    "@nuxt/image": "^1.11.0",
     "@types/luxon": "^3.7.1",
     "compression-webpack-plugin": "^11.1.0",
     "nuxt": "^4.0.1",
