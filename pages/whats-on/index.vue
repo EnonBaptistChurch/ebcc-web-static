@@ -22,7 +22,7 @@
             </p>
             <p>
                 <strong>Thursday</strong><br />
-                9.30am &#8211; <a href="https://enonbaptistchatham.org.uk/events/first-steps-toddler-group/">First Steps</a> – Toddler Group<br />
+                9.30am &#8211; <NuxtLink to="/whats-on/first-steps/">First Steps</NuxtLink> – Toddler Group<br />
                 (for parents, carers, and pre-school children)<br />
                 Parents/Carers need to stay with their children.<br />
                 1.45pm &#8211; <NuxtLink to="/whats-on/womens-meetings/">Ladies Meeting</NuxtLink> (1st and 3rd Thursday each month)

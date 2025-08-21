@@ -20,7 +20,7 @@ const whatsonSection: NavItem = {
     { link: "/whats-on/mens-meetings/", title: "Men's Meetings" },
     { link: "/whats-on/youth/", title: "Discoverers" },
     { link: "/whats-on/children/", title: "Children" },
-
+    { link: "/whats-on/first-steps/", title: "First Steps" },
   ],
   link: "/whats-on",
   submenuOpen:false
