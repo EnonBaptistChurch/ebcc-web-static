@@ -1,9 +1,9 @@
 <template>
   <div>
-      <img fetchpriority="high" decoding="async" class="responsive-image" src="https://enonbaptistchatham.org.uk/wp-content/uploads/2017/01/what-we-believe.jpg" width="772" height="515" />
+      <img fetchpriority="high" decoding="async" class="responsive-image" src="/images/bible.webp" width="772" height="515" />
       <div class="text-content">
-      <article class="edenPageContent">
-      <h1 class="entry-title">What We Believe</h1>
+      
+      <h1>What We Believe</h1>
       <div>
         <h3>Set out below is a summary of the essential doctrines which we at Enon Baptist Church believe:</h3>
           
@@ -13,7 +13,6 @@
               :content="section.content"
             />
       </div>
-      </article>
       </div>
   </div>
 </template> 

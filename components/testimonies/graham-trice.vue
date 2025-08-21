@@ -3,15 +3,14 @@
         <h1>Graham Trice</h1>
         <div>
             <figure>
-                <a href="https://enonbaptistchatham.org.uk/wp-content/uploads/2018/12/GMT-MST-Photo-1.jpg" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
+                
                     <img 
                         fetchpriority="high" 
                         decoding="async" 
-                        src="https://enonbaptistchatham.org.uk/wp-content/uploads/2018/12/GMT-MST-Photo-1.jpg" 
+                        src="/images/GMT-MST.webp" 
                         alt="Graham Trice" 
                         class="responsive-image"
                     />
-                </a>
             </figure>
             <div>
                 <p>My name is Graham Trice, I was born in Herbert Road Rainham at the end of the Second World War. Unbeknown to me at the time, I was given the grand title of the “Victory Baby of Herbert Road.” Having been born on the east side of the River Medway, I was able to call myself “A Man of Kent.” As I grew up, I eventually came to realize that there was also a far less flattering title for me—a “sinner.”</p>
