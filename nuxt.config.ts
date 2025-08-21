@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: false },
   css: ['~/public/css/site.css'],
+  modules: ['@nuxt/image'],
   alias: {
     '@': './',
   },
@@ -51,5 +52,5 @@ export default defineNuxtConfig({
     },
     plugins: [tsconfigPaths()]
   },
-  modules: ['@nuxt/image'],
+  
 })
