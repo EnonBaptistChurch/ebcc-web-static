@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       ],
       link: [
-        { rel: 'icon',type: 'image/x-icon', href: '/ebc-logo.ico' },  // For higher resolution displays
+        { rel: 'icon',type: 'image/x-icon', href: '/images/new-logo.ico' },  // For higher resolution displays
         { rel: 'preload', href: '/assets/css/site.css', as: 'style' },  // adjust if using hashed filenames
         { rel: 'stylesheet', href: '/assets/css/site.css' },
       ],

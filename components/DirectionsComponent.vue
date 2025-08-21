@@ -1,7 +1,6 @@
 <template>
     <div >
       <a @click.prevent="getDirections(location)" rel="nofollow" href="#" >
-        <!-- <img src="/ebc-logo.ico"  > -->
         <img class="directions" src="~/assets/icons/nav.svg" alt="Home Icon" />
         Get Directions
       </a>
