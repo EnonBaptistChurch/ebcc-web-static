@@ -2,7 +2,7 @@
   <main >
     
     <BibleVerseParallaxOverlay
-    image="https://enonbaptistchatham.org.uk/wp-content/uploads/2017/02/field-175959_1920.jpg"
+    image="/images/field.webp"
       verseText="And you will seek Me and find Me, when you search for Me with all your heart."
       reference="Jeremiah 29:13"
       version="NKJV" />

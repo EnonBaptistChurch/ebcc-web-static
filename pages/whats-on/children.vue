@@ -1,6 +1,6 @@
 <template>
     <article >
-        <img src="https://enonbaptistchatham.org.uk/wp-content/uploads/2017/01/abc.jpg" class="responsive-image" alt="" decoding="async" fetchpriority="high" />
+        <img src="/images/sunday-club.webp" class="responsive-image" alt="" decoding="async" fetchpriority="high" />
         <div class="text-content">
         <h1>Sunday Club</h1>
         <p><strong>Every Sunday from 9.45 &#8211; 10.45am.</strong></p>
