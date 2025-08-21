@@ -1,6 +1,20 @@
 <template>
   <div>
-      <img fetchpriority="high" decoding="async" class="responsive-image" src="/images/first-steps.webp" width="772" height="515" />
+      <img
+  src="/images/first-steps-1920.webp"
+  srcset="
+    /images/first-steps-320.webp 320w,
+    /images/first-steps-480.webp 480w,
+    /images/first-steps-640.webp 640w,
+    /images/first-steps-768.webp 768w,
+    /images/first-steps-1024.webp 1024w,
+    /images/first-steps-1280.webp 1280w,
+    /images/first-steps-1440.webp 1440w,
+    /images/first-steps-1920.webp 1920w"
+  sizes="100vw"
+  fetchpriority="high" decoding="async"
+  class="responsive-image"
+/>
       <div class="text-content">
       
       <h1>First Steps</h1>

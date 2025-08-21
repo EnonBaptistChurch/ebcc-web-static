@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-  src="/images/enonChurch-1920.webp"
+  src="/images/bible-1920.webp"
   srcset="
     /images/bible-320.webp 320w,
     /images/bible-480.webp 480w,
