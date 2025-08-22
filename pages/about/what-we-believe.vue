@@ -1,6 +1,21 @@
 <template>
   <div>
-      <img fetchpriority="high" decoding="async" class="responsive-image" src="/images/bible.webp" width="772" height="515" />
+    <img
+  src="/images/bible-1920.webp"
+  srcset="
+    /images/bible-320.webp 320w,
+    /images/bible-480.webp 480w,
+    /images/bible-640.webp 640w,
+    /images/bible-768.webp 768w,
+    /images/bible-1024.webp 1024w,
+    /images/bible-1280.webp 1280w,
+    /images/bible-1440.webp 1440w,
+    /images/bible-1920.webp 1920w"
+  sizes="100vw"
+  fetchpriority="high" decoding="async"
+  class="responsive-image"
+/>
+      <!-- <img fetchpriority="high" decoding="async" class="responsive-image" src="/images/bible.webp" width="772" height="515" /> -->
       <div class="text-content">
       
       <h1>What We Believe</h1>

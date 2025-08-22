@@ -3,14 +3,22 @@
         <h1>Graham Trice</h1>
         <div>
             <figure>
-                
-                    <img 
-                        fetchpriority="high" 
-                        decoding="async" 
-                        src="/images/GMT-MST.webp" 
-                        alt="Graham Trice" 
+                    <img
+                        src="/images/GMT-MST-1920.webp"
+                        srcset="
+                            /images/GMT-MST-320.webp 320w,
+                            /images/GMT-MST-480.webp 480w,
+                            /images/GMT-MST-640.webp 640w,
+                            /images/GMT-MST-768.webp 768w,
+                            /images/GMT-MST-1024.webp 1024w,
+                            /images/GMT-MST-1280.webp 1280w,
+                            /images/GMT-MST-1440.webp 1440w,
+                            /images/GMT-MST-1920.webp 1920w"
+                        sizes="100vw"
+                        alt="Graham and Mee Suan Trice"
+                        fetchpriority="high" decoding="async"
                         class="responsive-image"
-                    />
+                        />
             </figure>
             <div>
                 <p>My name is Graham Trice, I was born in Herbert Road Rainham at the end of the Second World War. Unbeknown to me at the time, I was given the grand title of the “Victory Baby of Herbert Road.” Having been born on the east side of the River Medway, I was able to call myself “A Man of Kent.” As I grew up, I eventually came to realize that there was also a far less flattering title for me—a “sinner.”</p>

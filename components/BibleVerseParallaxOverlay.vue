@@ -3,8 +3,7 @@
     id="edenParallax_page_section"
     class="edenParallax-zone"
     :data-speed="speed"
-    :data-image-src="image"
-    :style="{ backgroundImage: `url(${image})` }"
+    :style="{ backgroundImage: `url(${currentImage})` }"
   >
     <div class="edenParallax-wrap">
       <div class="edenParallax-screen"></div>
@@ -19,27 +18,41 @@
 export default {
   name: "BibleVerseParallax",
   props: {
-    image: {
-      type: String,
-      required: true,
-    },
-    verseText: {
-      type: String,
-      required: true,
-    },
-    reference: {
-      type: String,
-      required: true,
-    },
-    version: {
-      type: String,
-      required: true,
-    },
-    speed: {
-      type: String,
-      default: "0.3",
-    },
+    verseText: { type: String, required: true },
+    reference: { type: String, required: true },
+    version: { type: String, default: '' },
+    speed: { type: String, default: "0.3" },
+    images: { 
+      type: Object, 
+      default: () => ({
+        small: '/images/field-320.webp',
+        medium: '/images/field-768.webp',
+        large: '/images/field-1440.webp',
+        xlarge: '/images/field-1920.webp',
+      })
+    }
   },
+  data() {
+    return {
+      currentImage: this.images.large,
+    };
+  },
+  mounted() {
+    this.updateImage();
+    window.addEventListener('resize', this.updateImage);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.updateImage);
+  },
+  methods: {
+    updateImage() {
+      const width = window.innerWidth;
+      if (width >= 1440 && this.images.xlarge) this.currentImage = this.images.xlarge;
+      else if (width >= 1024 && this.images.large) this.currentImage = this.images.large;
+      else if (width >= 768 && this.images.medium) this.currentImage = this.images.medium;
+      else if (this.images.small) this.currentImage = this.images.small;
+    }
+  }
 };
 </script>
 
@@ -53,15 +66,17 @@ export default {
   width: 100%;
   height: 300px; /* default height for portrait */
   overflow: hidden;
+  transition: background-image 0.3s ease-in-out;
 }
 
+/* Safari/iOS fallback for fixed backgrounds */
 @supports (-webkit-overflow-scrolling: touch) {
   .edenParallax-zone {
     background-attachment: scroll;
   }
 }
 
-/* Increase height on landscape to give more vertical space */
+/* Increase height on landscape */
 @media (orientation: landscape) {
   .edenParallax-zone {
     height: 400px;
