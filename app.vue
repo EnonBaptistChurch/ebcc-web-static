@@ -6,6 +6,15 @@ const loaded = ref(false);
 onMounted(() => {
   loaded.value = true;
 });
+useHead({
+  title: 'Enon Baptist Church',
+  meta: [
+    
+    { name: 'description', content: 'We are an Independent Evangelical Reformed Baptist church in Chatham, Medway, Kent, seeking to glorify God and share the gospel of Christ. ' },
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+  ]
+})
+
 </script>
 
 <template>
