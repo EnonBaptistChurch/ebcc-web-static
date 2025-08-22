@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme {
+  --color-primary: #1da1f2;
+  --font-sans: 'Inter', sans-serif;
+}
