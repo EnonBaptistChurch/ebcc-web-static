@@ -17,8 +17,8 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon',type: 'image/x-icon', href: '/images/new-logo.ico' },  // For higher resolution displays
-        { rel: 'preload', href: '/assets/css/site.css', as: 'style' },  // adjust if using hashed filenames
-        { rel: 'stylesheet', href: '/assets/css/site.css' },
+        { rel: 'preload', href: '/css/site.css', as: 'style' },  // adjust if using hashed filenames
+        { rel: 'stylesheet', href: '/css/site.css' },
       ],
       htmlAttrs: {
         lang: 'en'
