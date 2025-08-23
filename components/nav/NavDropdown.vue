@@ -31,7 +31,7 @@ const props = defineProps<{
   position: absolute;
   left: 0;
   margin-top: 0.25rem;
-  width: 10rem; /* w-48 */
+  width: 11rem; 
   background: white;
   border-radius: 0.375rem; /* rounded-md */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
