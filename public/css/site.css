@@ -3,7 +3,9 @@
   --secondary-color: #edd286;
   --body-text-color: #000;
   --nav-bar-bg-color: #84c4f4;
+  --nav-bar-text-color: #333;
   --body-bf-color: #FFFF;
+  --nav-bar-hover-color: #125a83;
 }
 
 html,body {

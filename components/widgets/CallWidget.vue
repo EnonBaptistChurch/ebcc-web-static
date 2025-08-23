@@ -1,5 +1,5 @@
 <template>
-    <a href="#" @click="callNumber()">{{text}}</a>
+    <NuxtLink to="#" @click="callNumber()">{{text}}</NuxtLink>
 </template>
 
 <script>

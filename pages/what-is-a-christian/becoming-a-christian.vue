@@ -16,6 +16,6 @@
 <p><strong>If you believe these things and you really want to become a Christian, then there is only one thing to do.</strong> Trust in Christ alone to save you, and hate your own sin. Plead with God to have mercy on you. Do this until you know God’s peace in your heart. When you seek the Lord like this, you can be sure that he will not turn you away.</p>
 <p><em>Peter Jeffery<br />
 </em><em>© Day One Publications,</em><em> </em>
-<a href="https://www.dayone.co.uk/"><em>www.dayone.co.uk</em></a></p>
+<NuxtLink to="https://www.dayone.co.uk/"><em>www.dayone.co.uk</em></NuxtLink></p>
 </div>							</article>
 </template>

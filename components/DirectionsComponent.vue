@@ -1,9 +1,9 @@
 <template>
     <div >
-      <a @click.prevent="getDirections(location)" rel="nofollow" href="#" >
+      <NuxtLink @click.prevent="getDirections(location)" rel="nofollow" href="#" >
         <img class="directions" src="~/assets/icons/nav.svg" alt="Home Icon" />
         Get Directions
-      </a>
+      </NuxtLink>
     </div>
   </template>
   
