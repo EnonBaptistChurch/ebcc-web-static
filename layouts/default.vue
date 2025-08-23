@@ -1,6 +1,7 @@
 <template>
   <div>
-      <NavigationHeader />
+       <NavigationBar />
+        <!-- <NavigationHeader /> -->
       <main>
         <div class="content">
         <slot />
@@ -11,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import NavigationHeader from '../components/nav/NavigationHeader.vue'
+import NavigationBar from '../components/nav/NavigationBar.vue';
 import Footer from '../components/Footer.vue'
 </script>
 
