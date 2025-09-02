@@ -33,6 +33,7 @@ const onMouseLeave = () => {
         {{ item.title }}
         <svg
               class="navitem-icon"
+              :class="{ 'rotated': props.activeDropdown === props.index }"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -69,8 +70,8 @@ const onMouseLeave = () => {
 /* Shared link + button styles */
 .navitem-link,
 .navitem-button {
-  color: var(--nav-bar-text-color); /* similar to text-white */
-  border-radius: 0.375rem; /* rounded-md */
+  color: var(--nav-bar-text-color); 
+  border-radius: 0.375rem; 
   transition: color 0.2s ease;
   background: transparent;
   border: none;
@@ -82,13 +83,18 @@ const onMouseLeave = () => {
 
 .navitem-link:hover,
 .navitem-button:hover {
-  color: var(--nav-bar-hover-color); /* blue-600 */
+  color: var(--nav-bar-hover-color); 
 }
 
 /* Dropdown arrow icon */
 .navitem-icon {
-  margin-left: 0.25rem; /* ml-1 */
-  width: 1rem; /* w-4 */
-  height: 1rem; /* h-4 */
+  margin-left: 0.25rem; 
+  width: 1rem; 
+  height: 1rem; 
+  transition: transform 0.25s ease;
+}
+
+.navitem-icon.rotated {
+  transform: rotate(180deg);
 }
 </style>
