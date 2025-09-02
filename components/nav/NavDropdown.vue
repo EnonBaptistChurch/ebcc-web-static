@@ -30,12 +30,12 @@ const props = defineProps<{
 .dropdown-menu {
   position: absolute;
   left: 0;
-  margin-top: 0.25rem;
+  margin-top: 0.1rem;
   width: 11rem; 
   background: white;
-  border-radius: 0.375rem; /* rounded-md */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-lg */
-  padding: 0.25rem 0; /* py-1 */
+  border-radius: 0.375rem; 
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  padding: 0.25rem 0; 
   z-index: 10;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
@@ -54,14 +54,14 @@ const props = defineProps<{
 /* Dropdown links */
 .dropdown-menu-link {
   display: block;
-  padding: 0.5rem 1rem; /* px-4 py-2 */
-  color: #374151; /* gray-700 */
+  padding: 0.5rem 1rem; 
+  color: #374151; 
   transition: background-color 0.2s ease, color 0.2s ease;
   text-decoration: none;
 }
 
 .dropdown-menu-link:hover {
-  background-color: #f3f4f6; /* gray-100 */
-  color: var(--nav-bar-hover-color); /* blue-600 */
+  background-color: #f3f4f6; 
+  color: var(--nav-bar-hover-color); 
 }
 </style>
