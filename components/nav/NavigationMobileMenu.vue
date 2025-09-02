@@ -123,13 +123,13 @@ const menuItems = computed(() => props.menuItems || [])
 }
 
 .navmobile-button:hover {
-  color: #000; /* blue-600 */
-  background-color: #f9fafb; /* gray-50 */
+  color: #000; 
+  background-color: #f9fafb; 
 }
 
 /* Chevron icon */
 .navmobile-icon {
-  width: 1rem; /* h-4 w-4 */
+  width: 1rem; 
   height: 1rem;
   transition: transform 0.1s ease;
 }
@@ -169,36 +169,36 @@ const menuItems = computed(() => props.menuItems || [])
 
 /* Dropdown links wrapper */
 .navmobile-dropdown-links {
-  padding-left: 1.5rem; /* pl-6 */
+  padding-left: 1.5rem; 
   display: flex;
   flex-direction: column;
-  gap: 0.25rem; /* space-y-1 */
+  gap: 0.25rem; 
 }
 
 /* Dropdown links */
 .navmobile-dropdown-link {
   display: block;
-  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  padding: 0.5rem 0.75rem; 
   border-radius: 0.375rem;
   margin-right: 2rem;
-  color: #4b5563; /* gray-600 */
+  color: #4b5563; 
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease;
   border-bottom: 1px solid #eee;
 }
 
 .navmobile-dropdown-link:hover {
-  background-color: #f9fafb; /* gray-50 */
+  background-color: #f9fafb; 
 }
 
 /* Regular (non-dropdown) links */
 .navmobile-link {
   display: block;
-  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  padding: 0.5rem 0.75rem; 
   border-radius: 0.375rem;
-  font-size: 1rem; /* text-base */
+  font-size: 1rem; 
   font-weight: 500;
-  color: #374151; /* gray-700 */
+  color: #374151; 
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease;
   border-bottom: 1px solid #eee;
@@ -208,6 +208,6 @@ const menuItems = computed(() => props.menuItems || [])
 }
 
 .navmobile-link:hover {
-  background-color: #f9fafb; /* gray-50 */
+  background-color: #f9fafb; 
 }
 </style>
