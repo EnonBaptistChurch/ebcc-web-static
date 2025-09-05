@@ -1,5 +1,5 @@
-// netlify/functions/contact.js
-import nodemailer from 'nodemailer';
+import 'dotenv/config';
+import Mailjet from 'node-mailjet';
 
 export async function handler(event) {
   if (event.httpMethod !== 'POST') {
@@ -15,37 +15,47 @@ export async function handler(event) {
 
     console.log('Incoming form submission:', { name, email, message });
 
-    // Create SMTP transporter
-    const transporter = nodemailer.createTransport({
-      host: 'smtp.gmail.com',
-      port: 465,        // secure port
-      secure: true,     // SSL
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    const mailjet = Mailjet.apiConnect(
+      process.env.MJ_APIKEY_PUBLIC,
+      process.env.MJ_APIKEY_PRIVATE
+    );
 
-    // Send the email
-    const info = await transporter.sendMail({
-      from: process.env.EMAIL_FROM, // verified sender
-      to: process.env.EMAIL_TO,     // destination inbox
-      replyTo: email,               // user's email for reply
-      subject: `New contact form message from ${name}`,
-      text: message,
-    });
+    const request = await mailjet
+      .post('send', { version: 'v3.1' })
+      .request({
+        Messages: [
+          {
+            From: {
+              Email: process.env.EMAIL_FROM,
+              Name: 'Enon Website Contact Form'
+            },
+            To: [
+              {
+                Email: process.env.EMAIL_TO,
+                Name: 'Your Name'
+              }
+            ],
+            Subject: `New Contact Form Message from ${name}`,
+            TextPart: message,
+            ReplyTo: {
+              Email: email,
+              Name: name
+            }
+          }
+        ]
+      });
 
-    console.log('Email sent successfully:', info.messageId);
+    console.log('Email sent:', request.body);
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true }),
+      body: JSON.stringify({ success: true })
     };
   } catch (err) {
     console.error('Email sending error:', err);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send email' }),
+      body: JSON.stringify({ error: 'Failed to send email' })
     };
   }
 }
