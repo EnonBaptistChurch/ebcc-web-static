@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 import NavLogo from './NavLogo.vue'
 import MenuItem from './MenuItem.vue'
-import MobileMenu from './MobileMenu.vue'
-import NavMobileMenu from './NavigationMobileMenu.vue'
+import MobileMenuIcon from './MobileMenuIcon.vue'
+import NavigationMobileMenu from './NavigationMobileMenu.vue'
 
 const isOpen = ref(false)
 const activeDropdown = ref(null)
@@ -20,8 +20,16 @@ const setActiveDropdown = (index) => {
   activeDropdown.value = index
 }
 
+const clearActiveDropdown = (index) => {
+  console.log('clearActiveDropdown called');
+  activeDropdown.value = null;
+  console.log('activeDropdown after clear:', activeDropdown.value);
+  closeMenu();
+}
+
 const closeMenu = () => {
-  isOpen.value = false
+  activeDropdown.value = null;
+  isOpen.value = false;
 }
 
 import navItems from '../../data/NavigationLinks'
@@ -34,7 +42,7 @@ import navItems from '../../data/NavigationLinks'
       <div class="navbar-container">
         <div class="navbar-inner">
           <!-- Logo -->
-          <NavLogo />
+          <NavLogo :clearActiveDropdown="clearActiveDropdown" />
 
           <!-- Desktop navigation -->
           <div class="nav-desktop">
@@ -54,13 +62,13 @@ import navItems from '../../data/NavigationLinks'
 
           <!-- Mobile navigation -->
           <div class="nav-mobile">
-            <MobileMenu :isOpen="isOpen" :toggleMenu="toggleMenu" />
+            <MobileMenuIcon :isOpen="isOpen" :toggleMenu="toggleMenu" />
           </div>
         </div>
       </div>
 
       <!-- Mobile dropdown -->
-      <NavMobileMenu
+      <NavigationMobileMenu
         v-if="isOpen"
         :menuItems="navItems"
         :activeDropdown="activeDropdown"

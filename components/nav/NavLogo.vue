@@ -1,10 +1,16 @@
 <template>
   <div class="navlogo">
     <div class="navlogo-text">
-      <NuxtLink to="/">Enon Baptist Church</NuxtLink>
+      <NuxtLink to="/" @click="props.clearActiveDropdown">Enon Baptist Church</NuxtLink>
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+const props = defineProps<{
+  clearActiveDropdown: () => void
+}>()
+</script>
 
 <style scoped>
 .navlogo {

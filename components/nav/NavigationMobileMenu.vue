@@ -20,7 +20,17 @@ const menuItems = computed(() => props.menuItems || [])
             @click="toggleDropdown(index)"
             class="navmobile-button"
           >
+          <template v-if="item.link">
+            <NuxtLink
+              :to="item.link"
+              class="navmobile-dropdown-menu-link"
+              @click="props.closeMenu && props.closeMenu()" >
             {{ item.title }}
+            </NuxtLink>
+          </template>
+          <template v-else>
+            {{ item.title }}
+          </template>
             <div class="navmobile-icon-wrapper-border">
               <div class="navmobile-icon-wrapper">
                 <svg
@@ -99,7 +109,6 @@ const menuItems = computed(() => props.menuItems || [])
   border-top: 1px solid #e5e7eb; /* gray-200 */
   display: flex;
   flex-direction: column;
-  gap: 0.25rem; /* space-y-1 */
   border-radius: 0 0 0.375rem 0.375rem;
 }
 
@@ -110,7 +119,7 @@ const menuItems = computed(() => props.menuItems || [])
   color: #374151; /* gray-700 */
   background: transparent;
   border: none;
-  padding: 0.5rem 0.75rem; /* px-3 py-2 */
+  padding: 0.75rem 0.75rem; /* px-3 py-2 */
   border-radius: 0.375rem;
   font-size: 1rem; /* text-base */
   font-weight: 500;
@@ -124,7 +133,6 @@ const menuItems = computed(() => props.menuItems || [])
 
 .navmobile-button:hover {
   color: #000; 
-  background-color: #f9fafb; 
 }
 
 /* Chevron icon */
@@ -138,13 +146,13 @@ const menuItems = computed(() => props.menuItems || [])
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 1rem;
+  margin-right: 0.95rem;
   
 }
 
 .navmobile-icon-wrapper-border {
   border-left: 1px solid #bbb;
-  padding-left: 1rem;
+  padding-left: 0.75rem;
 }
 
 .navmobile-icon.rotated {
@@ -185,6 +193,11 @@ const menuItems = computed(() => props.menuItems || [])
   text-decoration: none;
   transition: color 0.2s ease, background-color 0.2s ease;
   border-bottom: 1px solid #eee;
+}
+
+.navmobile-dropdown-menu-link {
+  color: #4b5563; 
+  text-decoration: none;
 }
 
 .navmobile-dropdown-link:hover {

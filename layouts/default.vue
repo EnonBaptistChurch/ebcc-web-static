@@ -1,7 +1,6 @@
 <template>
   <div>
        <NavigationBar />
-        <!-- <NavigationHeader /> -->
       <main>
         <div class="content">
         <slot />
