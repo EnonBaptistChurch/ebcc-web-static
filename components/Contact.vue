@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
 const formData = ref({
   name: '',
@@ -10,25 +10,6 @@ const formData = ref({
 const status = ref<'idle' | 'success' | 'error'>('idle')
 const isSubmitting = ref(false)
 const honeypot = ref('') // anti-spam hidden input
-const hasFormId = ref(false) // Flag to check if Formspree ID exists
-
-// Check if Formspree ID is available
-async function checkFormId() {
-  const response = await fetch('/api/formspree/checkId')
-  const result = await response.json()
-  
-  if (response.ok) {
-    if(result.success) {
-    hasFormId.value = true;
-    }
-    else {
-      hasFormId.value = false;
-    }
-  } else {
-    hasFormId.value = false
-    console.error('Error:', result.error)
-  }
-}
 
 // Submit the form
 const handleSubmit = async () => {
@@ -41,14 +22,14 @@ const handleSubmit = async () => {
   status.value = 'idle'
 
   try {
-    const response = await $fetch('/api/formspree/submit', {
+    const response = await $fetch('/.netlify/functions/contact', {
       method: 'POST',
       body: formData.value
     })
 
     if (typeof response === 'object' && response !== null && 'error' in response) {
       const message = (response as { error: string }).error
-      throw new Error(message)
+      throw new Error(message) // now TypeScript knows it's a string
     }
 
     status.value = 'success'
@@ -60,11 +41,6 @@ const handleSubmit = async () => {
     isSubmitting.value = false
   }
 }
-
-// Check Form ID when the component mounts
-onMounted(() => {
-  checkFormId();
-})
 </script>
 
 <template>
@@ -119,15 +95,14 @@ onMounted(() => {
       <p v-else-if="status === 'error'" class="status error">Something went wrong. Please try again.</p>
     </form>
   </div>
-
 </template>
+
 <style scoped>
 .email-form {
-  max-width: 1000px;  /* Wide enough to support 2-column layout */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 2rem;
   border-radius: 1rem;
-  
 }
 
 .form-row {
@@ -161,7 +136,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  border-color: var(--nav-bar-bg-color);;
+  border-color: var(--nav-bar-bg-color);
   outline: none;
 }
 
@@ -205,7 +180,7 @@ button:hover:not(:disabled) {
 /* Mobile - Single column layout */
 @media (max-width: 767px) {
   .form-row {
-    flex-direction: column;  /* Stack the fields vertically on mobile */
+    flex-direction: column;
   }
 }
 
