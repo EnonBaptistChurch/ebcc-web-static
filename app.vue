@@ -1,7 +1,6 @@
 <template>
   <div :class="{ 'is-loaded': loaded }" class="app-container">
     <NuxtLayout>
-      <!-- 👇 Global transition applied directly by Nuxt -->
       <NuxtPage />
     </NuxtLayout>
   </div>

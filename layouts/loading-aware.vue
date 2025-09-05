@@ -4,7 +4,7 @@
       <span class="loader-text">Loading...</span>
     </div>
     <div v-else>
-      <NavigationHeader />
+      <NavigationBar />
       <main>
         <div class="content">
         <slot />
@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 import { usePageReady }  from '../composables/usePageReady'
-import NavigationHeader from '../components/nav/NavigationHeader.vue'
+import NavigationBar from '../components/nav/NavigationBar.vue';
 import Footer from '../components/Footer.vue'
 
 const { pageReady } = usePageReady()

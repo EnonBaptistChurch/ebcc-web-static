@@ -3,6 +3,7 @@ import type { NavItem } from '@/types/NavItem';
 const aboutSection :NavItem =
 {
   title: "About Us",
+  link: "/about",
   submenu: [
     { link: "/about/what-we-believe/", title: "What We Believe" },
     { link: "/about/church-history/", title: "Church History" },

@@ -3,6 +3,7 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
+  ssr: true,
   devtools: { enabled: false },
   css: ['~/public/css/site.css'], // Adjust to match your actual path
   alias: {
