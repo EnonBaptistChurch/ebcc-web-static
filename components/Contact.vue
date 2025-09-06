@@ -44,7 +44,7 @@ const handleSubmit = async () => {
 </script>
 
 <template>
-  <div v-if="hasFormId">
+  <div>
     <form @submit.prevent="handleSubmit" class="email-form">
       <div class="form-row">
         <div class="form-group">

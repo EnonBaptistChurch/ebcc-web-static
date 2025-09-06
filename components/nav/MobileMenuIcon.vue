@@ -14,7 +14,7 @@ defineProps({
 <template> 
   <div class="mobile-menu-toggle">
     <div
-      @click="(e) => toggleMenu(e)"
+      @click="(e: any) => toggleMenu(e)"
       class="menu-button"
       aria-label="Toggle menu"
     >
