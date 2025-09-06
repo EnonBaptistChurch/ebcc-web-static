@@ -19,8 +19,8 @@ html,body {
   }
  @font-face {
   font-family: 'Inter';
-  src: url('/public/fonts/Inter_Tight/static/InterTight-Regular.ttf') format('truetype'), 
-       url('/public/fonts/Inter_Tight/static/InterTight-Black.ttf') format('truetype');
+  src: url('/fonts/Inter_Tight/static/InterTight-Regular.ttf') format('truetype'), 
+       url('/fonts/Inter_Tight/static/InterTight-Black.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
