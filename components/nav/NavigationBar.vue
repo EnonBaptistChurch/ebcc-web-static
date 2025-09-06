@@ -21,9 +21,7 @@ const setActiveDropdown = (index) => {
 }
 
 const clearActiveDropdown = (index) => {
-  console.log('clearActiveDropdown called');
   activeDropdown.value = null;
-  console.log('activeDropdown after clear:', activeDropdown.value);
   closeMenu();
 }
 

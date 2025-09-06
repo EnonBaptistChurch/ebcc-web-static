@@ -13,8 +13,6 @@ export async function handler(event) {
       return { statusCode: 400, body: JSON.stringify({ error: 'Missing fields' }) };
     }
 
-    console.log('Incoming form submission:', { name, email, message });
-
     const mailjet = Mailjet.apiConnect(
       process.env.MJ_APIKEY_PUBLIC,
       process.env.MJ_APIKEY_PRIVATE
@@ -44,8 +42,6 @@ export async function handler(event) {
           }
         ]
       });
-
-    console.log('Email sent:', request.body);
 
     return {
       statusCode: 200,
