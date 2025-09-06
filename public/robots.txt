@@ -1,1 +1,3 @@
-
+User-agent: *
+Disallow: /_nuxt/
+Disallow: /nuxt/   # In case your build outputs this instead
